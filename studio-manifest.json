@@ -1,0 +1,20 @@
+{
+  "manifest_schema": "studio.v1",
+  "surum": "2026.4.1",
+  "ozet_tr": "Dış manifest aktif. Güncel yetenek ve yenilikler buradan çekiliyor.",
+  "ne_yapabilir": [
+    "Yönetimsel gelişim satırlarını dış kaynakla güncelleme",
+    "Öneri ve rehber metinlerini tazeleme"
+  ],
+  "yenilikler": [
+    {
+      "tarih": "2026-03-31",
+      "baslik": "Manifest aktif edildi",
+      "ozet": "Sistem artık dış manifestten yenilik çekebiliyor."
+    }
+  ],
+  "onerilen_kaynaklar": [
+    "https://docs.python.org/3/",
+    "https://fastapi.tiangolo.com/"
+  ]
+}
