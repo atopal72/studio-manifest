@@ -1,21 +1,85 @@
 {
-  "manifest_schema": "studio.v1",
-  "surum": "2026.4.1",
-  "ozet_tr": "Dış manifest aktif. Güncel yetenek ve yenilikler buradan çekiliyor.",
+  "manifest_schema": "studio.v2",
+  "surum": "2026.4.3",
+  "ozet_tr": "Bu manifest genişleyebilir bir menbaldir: yenilikler ve paket satırları tarih ve sürümle büyür. Buradaki URL’ler «her yere serbest araştırma» değil; kayıtlı, çoğu resmi veya kök kaynak referanslarıdır. Zip indirme veya kurulum buradan tetiklenmez; hash dolduğunda bile uygulama ayrı onay ve izin hattındadır. Öğrendiğiniz yeni kök kaynağı aynı şema ile satır olarak eklersiniz.",
   "ne_yapabilir": [
-    "Yönetimsel gelişim satırlarını dış kaynakla güncelleme",
-    "Öneri ve rehber metinlerini tazeleme"
+    "surum alanını her anlamlı değişiklikte artırarak izlenebilirlik sağlama.",
+    "yenilikler dizisine tarih + baslik + ozet ile kronoloji ekleme; geçmiş satırları silmeden ilerleme.",
+    "onerilen_kaynaklar: kısa Türkçe açıklı + bağlantı veya «yerel: yol» (satır ≤240 karakter).",
+    "onerilen_paketler: her satır { url, aciklama_tr, isteğe bağlı beklenen_sha256 } — en fazla 20 satır; boş url atlanır.",
+    "Yeni satır eklerken aynı anahtarları koruyun; sha256’yı dosyayı sabitlediğinizde doldurun, yoksa boş bırakın.",
+    "Çekirdek özet ve hazırlık akışı bu metinleri salt okunur gösterir; motor ve dosya eylemi manifestten doğmaz."
   ],
   "yenilikler": [
     {
+      "tarih": "2026-04-02",
+      "baslik": "studio.v2 paket satırları ve genişleme sözleşmesi",
+      "ozet": "Önerilen paket listesi katalog mantığıyla tanımlandı; büyüme, yeni satır eklemekle yapılır, otomatik tarama veya exe vaadi yoktur."
+    },
+    {
       "tarih": "2026-03-31",
-      "baslik": "Manifest aktif edildi",
-      "ozet": "Sistem artık dış manifestten yenilik çekebiliyor."
+      "baslik": "Dış manifest önbelleği",
+      "ozet": "Doğrulanmış JSON tek_beyin_manifest ile bellek önbelleğine alınır; şema studio.v1 veya studio.v2 olmalıdır."
     }
   ],
   "onerilen_kaynaklar": [
-    "https://docs.python.org/3/",
-    "https://fastapi.tiangolo.com/"
-    "https://www.google.com/"
+    "Tek beyin anayasa — yerel: docs/TEK_BEYIN_BUYUME_ILKELERI.md",
+    "Metafor kilidi — yerel: docs/METAFOR_VE_BEKLENTI_KILIDI.md",
+    "Önbellek katmanları — yerel: docs/ONBELLEK_KATMANLARI.md",
+    "Offline taşıma — yerel: runtime/offline/README.md",
+    "Proje giriş — yerel: README_TR.md",
+    "Studio.v2 şema notu — yerel: backend/tek_beyin_manifest.py (sanitize sınırları)"
+  ],
+  "onerilen_paketler": [
+    {
+      "url": "https://docs.python.org/3/",
+      "beklenen_sha256": "",
+      "aciklama_tr": "Python resmi belgeleri — dil ve stdlib için kök referans; yeni satırlar aynı kalıpta eklenir."
+    },
+    {
+      "url": "https://packaging.python.org/",
+      "beklenen_sha256": "",
+      "aciklama_tr": "PyPA paketleme rehberi — dağıtım ve sanal ortam disiplini için menbal."
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/",
+      "beklenen_sha256": "",
+      "aciklama_tr": "FastAPI resmi dokümantasyon — HTTP API yüzeyi ile uyumlu okuma."
+    },
+    {
+      "url": "https://developer.mozilla.org/tr/",
+      "beklenen_sha256": "",
+      "aciklama_tr": "MDN Türkçe — web API ve istemci tarafı için kök kaynak (genişletilebilir katalog satırı)."
+    },
+    {
+      "url": "https://semver.org/lang/tr/",
+      "beklenen_sha256": "",
+      "aciklama_tr": "Semver Türkçe — sürüm numaralandırma ve manifest surum disiplini için referans."
+    },
+    {
+      "url": "https://owasp.org/www-project-top-ten/",
+      "beklenen_sha256": "",
+      "aciklama_tr": "OWASP Top 10 — güvenlik farkındalığı menbalı; uygulama ayrı onay gerektirir."
+    },
+    {
+      "url": "https://spec.openapis.org/oas/latest.html",
+      "beklenen_sha256": "",
+      "aciklama_tr": "OpenAPI spesifikasyonu — API sözleşmesi dilini netleştirmek için kök metin."
+    },
+    {
+      "url": "https://json-schema.org/specification",
+      "beklenen_sha256": "",
+      "aciklama_tr": "JSON Schema spesifikasyonu — ileride manifest alt şemaları için ortak dil (yalnız referans)."
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc8259",
+      "beklenen_sha256": "",
+      "aciklama_tr": "RFC 8259 JSON — manifest ve paket meta JSON sözdizimi için standart kökü."
+    },
+    {
+      "url": "https://pypi.org/",
+      "beklenen_sha256": "",
+      "aciklama_tr": "PyPI giriş — paket meta ve sürüm izleme için katalog satırı şablonu (otomatik kurulum yok)."
+    }
   ]
 }
