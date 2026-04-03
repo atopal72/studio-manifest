@@ -1,20 +1,27 @@
 {
   "manifest_schema": "studio.v2",
-  "surum": "2026.4.3",
-  "ozet_tr": "Bu manifest genişleyebilir bir menbaldir: yenilikler ve paket satırları tarih ve sürümle büyür. Buradaki URL’ler «her yere serbest araştırma» değil; kayıtlı, çoğu resmi veya kök kaynak referanslarıdır. Zip indirme veya kurulum buradan tetiklenmez; hash dolduğunda bile uygulama ayrı onay ve izin hattındadır. Öğrendiğiniz yeni kök kaynağı aynı şema ile satır olarak eklersiniz.",
+  "surum": "2026.4.5",
+  "ozet_tr": "Bu manifest genişleyebilir bir menbaldir: yenilikler ve paket satırları tarih ve sürümle büyür. URL’ler kayıtlı katalogdur; «her yere serbest araştırma» veya otomatik tarama anlamına gelmez. Zip/kurulum buradan tetiklenmez; hash dolsun dolmasın uygulama ayrı onay ve izin hattındadır. Güncelleme: bu JSON’u veya uzak dosyayı siz değiştirirsiniz; stüdyo yalnız HTTPS ile tekrar çeker (manifest_internet). Yeni kök kaynağı aynı şema ile satır olarak eklersiniz.",
   "ne_yapabilir": [
     "surum alanını her anlamlı değişiklikte artırarak izlenebilirlik sağlama.",
     "yenilikler dizisine tarih + baslik + ozet ile kronoloji ekleme; geçmiş satırları silmeden ilerleme.",
-    "onerilen_kaynaklar: kısa Türkçe açıklı + bağlantı veya «yerel: yol» (satır ≤240 karakter).",
-    "onerilen_paketler: her satır { url, aciklama_tr, isteğe bağlı beklenen_sha256 } — en fazla 20 satır; boş url atlanır.",
-    "Yeni satır eklerken aynı anahtarları koruyun; sha256’yı dosyayı sabitlediğinizde doldurun, yoksa boş bırakın.",
-    "Çekirdek özet ve hazırlık akışı bu metinleri salt okunur gösterir; motor ve dosya eylemi manifestten doğmaz."
+    "onerilen_kaynaklar: kısa Türkçe açıklı + bağlantı veya yerel yol (satır başına en fazla 240 karakter; en fazla 25 satır).",
+    "onerilen_paketler: her satır { url, aciklama_tr, isteğe bağlı beklenen_sha256 veya sha256 } — en fazla 32 satır; boş url atlanır.",
+    "Yeni satır eklerken aynı anahtarları koruyun; arşivi sabitlediğinizde beklenen_sha256 doldurun, yoksa boş bırakın.",
+    "Çekirdek özet ve hazırlık akışı bu metinleri salt okunur gösterir; motor ve dosya eylemi manifestten doğmaz.",
+    "studio.v1 yalnızca paket satırı taşımaz; paket URL kataloğu için studio.v2 kullanın.",
+    "Paket merkezi, upright peç, taşınır zip ve ham menbal akışıyla çelişen vaat yazmayın; menbal ile uygulama ayrıdır."
   ],
   "yenilikler": [
     {
       "tarih": "2026-04-02",
+      "baslik": "Sanitize üst sınırları (tek_beyin_manifest)",
+      "ozet": "onerilen_paketler en fazla 32, onerilen_kaynaklar 25, ne_yapabilir 48, yenilikler 40 satıra kadar işlenir; fazlası kesilir."
+    },
+    {
+      "tarih": "2026-04-02",
       "baslik": "studio.v2 paket satırları ve genişleme sözleşmesi",
-      "ozet": "Önerilen paket listesi katalog mantığıyla tanımlandı; büyüme, yeni satır eklemekle yapılır, otomatik tarama veya exe vaadi yoktur."
+      "ozet": "Önerilen paket listesi katalog mantığıyla tanımlandı; büyüme yeni satır eklemekle yapılır; otomatik tarama veya exe vaadi yoktur."
     },
     {
       "tarih": "2026-03-31",
@@ -26,9 +33,11 @@
     "Tek beyin anayasa — yerel: docs/TEK_BEYIN_BUYUME_ILKELERI.md",
     "Metafor kilidi — yerel: docs/METAFOR_VE_BEKLENTI_KILIDI.md",
     "Önbellek katmanları — yerel: docs/ONBELLEK_KATMANLARI.md",
+    "Zeka büyüme yolu — yerel: docs/ZEKA_BUYUME_YOLU.md",
     "Offline taşıma — yerel: runtime/offline/README.md",
     "Proje giriş — yerel: README_TR.md",
-    "Studio.v2 şema notu — yerel: backend/tek_beyin_manifest.py (sanitize sınırları)"
+    "Manifest ve limit sabitleri — yerel: backend/tek_beyin_manifest.py",
+    "Tam örnek studio.v2 — yerel: docs/STUDIO_MANIFEST_ORNEK_studio_v2.json"
   ],
   "onerilen_paketler": [
     {
